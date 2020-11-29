@@ -3,13 +3,15 @@
 // import Material Theme Creator ngx-module
 @import "~material-theme-creator/ngx-mtc";
 
+@import "theme-maps"; // Important: see this file!
+
 @include mat-core();
 
 // Init Material Theme Creator ngx-module
 @include ngx-mtc-init();
 
 // Create theme map (variables without colors)
-$primary-palette: mat-palette(ngx-mtc-create-theme-map('primary'));
+$primary-palette: mat-palette($primary-map);
 
 $accent-palette: mat-palette($mat-grey, A200, A100, A400);
 $warn-palette: mat-palette($mat-red);

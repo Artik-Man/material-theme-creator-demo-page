@@ -1,0 +1,10 @@
+@import "~material-theme-creator/ngx-mtc";
+$primary-map: ngx-mtc-create-theme-map('primary');
+
+/*
+This file needs to use
+    mat-color($primary-map, 500);
+and
+    mat-contrast($primary-map, 500);
+angular material functions.
+*/
