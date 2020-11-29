@@ -1,4 +1,6 @@
 @import '~@angular/material/theming';
+
+// import Material Theme Creator ngx-module
 @import "~material-theme-creator/ngx-mtc";
 
 @include mat-core();
@@ -19,14 +21,13 @@ $theme: ngx-mtc-custom-theme(
     $warn-palette,
 );
 
+@include angular-material-theme($theme);
 
 body {
   --is-dark-theme: 0; // init theme type
   @include ngx-mtc-theme-base(); // init theme base (light/dark)
   @include ngx-mtc-create-variables-from-color('primary', #3f51b5, 50%); // create theme from color
 }
-
-@include angular-material-theme($theme);
 
 // Usage
 html, body {
