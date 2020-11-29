@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import "~material-theme-creator/ngx-mtc";
+
+@include mat-core();
+
+// Init Material Theme Creator ngx-module
+@include ngx-mtc-init();
+
+// Create theme map (variables without colors)
+$primary-palette: mat-palette(ngx-mtc-create-theme-map('primary'));
+
+$accent-palette: mat-palette($mat-grey, A200, A100, A400);
+$warn-palette: mat-palette($mat-red);
+
+// Custom theme
+$theme: ngx-mtc-custom-theme(
+    $primary-palette,
+    $accent-palette,
+    $warn-palette,
+);
+
+
+body {
+  --is-dark-theme: 0; // init theme type
+  @include ngx-mtc-theme-base(); // init theme base (light/dark)
+  @include ngx-mtc-create-variables-from-color('primary', #3f51b5, 50%); // create theme from color
+}
+
+@include angular-material-theme($theme);
+
+// Usage
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: map-get(map-get($theme, background), background);
+  color: map-get(map-get($theme, foreground), text);
+}
