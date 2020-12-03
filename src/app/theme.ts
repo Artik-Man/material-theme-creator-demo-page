@@ -65,11 +65,11 @@ export class Theme {
   }
 
   private applyTheme(): void {
-    document.body.style.setProperty('--is-dark-theme', `${+this.dark}`);
-    document.body.style.setProperty('--primary-h', `${this.h}`);
-    document.body.style.setProperty('--primary-s', `${this.s}`);
-    document.body.style.setProperty('--primary-l', `${this.l}`);
-    document.body.style.setProperty('--primary-contrast-threshold', `${this.cc}%`);
+    document.documentElement.style.setProperty('--is-dark-theme', `${+this.dark}`);
+    document.documentElement.style.setProperty('--primary-h', `${this.h}`);
+    document.documentElement.style.setProperty('--primary-s', `${this.s}`);
+    document.documentElement.style.setProperty('--primary-l', `${this.l}`);
+    document.documentElement.style.setProperty('--primary-contrast-threshold', `${this.cc}%`);
   }
 
 }

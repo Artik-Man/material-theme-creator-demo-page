@@ -25,13 +25,27 @@ $theme: ngx-mtc-custom-theme(
 
 @include angular-material-theme($theme);
 
-body {
-  --is-dark-theme: 0; // init theme type
+
+// init theme type
+@media (prefers-color-scheme: dark) {
+  :root {
+    --is-dark-theme: 1;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --is-dark-theme: 0;
+  }
+}
+
+:root {
   @include ngx-mtc-theme-base(); // init theme base (light/dark)
   @include ngx-mtc-create-variables-from-color('primary', #3f51b5, 50%); // create theme from color
 }
 
-// Usage
+
+// Use
 html, body {
   height: 100%;
   margin: 0;
