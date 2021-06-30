@@ -1,29 +1,31 @@
+@use '~@angular/material' as mat;
+// import Material Theme Creator ngx-module
+@use "~material-theme-creator/ngx-mtc" as ngx-mtc;
+
 @import '~@angular/material/theming';
 
-// import Material Theme Creator ngx-module
-@import "~material-theme-creator/ngx-mtc";
 
 @import "theme-maps"; // Important: see this file!
 
-@include mat-core();
+@include mat.core();
 
 // Init Material Theme Creator ngx-module
-@include ngx-mtc-init();
+@include ngx-mtc.init();
 
 // Create theme map (variables without colors)
-$primary-palette: mat-palette($primary-map);
+$primary-palette: mat.define-palette($primary-map);
 
-$accent-palette: mat-palette($mat-grey, A200, A100, A400);
-$warn-palette: mat-palette($mat-red);
+$accent-palette: mat.define-palette(mat.$grey-palette, A200, A100, A400);
+$warn-palette: mat.define-palette(mat.$red-palette);
 
 // Custom theme
-$theme: ngx-mtc-custom-theme(
+$theme: ngx-mtc.custom-theme(
     $primary-palette,
     $accent-palette,
     $warn-palette,
 );
 
-@include angular-material-theme($theme);
+@include mat.all-component-themes($theme);
 
 
 // init theme type
@@ -40,8 +42,8 @@ $theme: ngx-mtc-custom-theme(
 }
 
 :root {
-  @include ngx-mtc-theme-base(); // init theme base (light/dark)
-  @include ngx-mtc-create-variables-from-color('primary', #3f51b5, 50%); // create theme from color
+  @include ngx-mtc.theme-base(); // init theme base (light/dark)
+  @include ngx-mtc.create-variables-from-color('primary', #3f51b5, 50%); // create theme from color
 }
 
 

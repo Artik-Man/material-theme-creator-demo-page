@@ -1,10 +1,11 @@
+@use '~@angular/material' as mat;
 // import $primary-map
 @import "/src/theme-maps";
 // import mat-color
 @import "~@angular/material/theming";
 
 a {
-  color: mat-color($primary-map, 600);
+  color: mat.get-color-from-palette($primary-map, 600);
   // color: var(--primary-600);
   // color: hsla( var(--primary-600-h), var(--primary-600-s), var(--primary-600-l), 100%);
 }
